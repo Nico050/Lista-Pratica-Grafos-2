@@ -83,5 +83,31 @@ O gráfico de teste demonstra a função. Os pontos "Start" e "End" (que já sã
 ![VERTICE MAIS PRÓXIMO](VerticeMaisProximo.png)
 
 
+# Passo 5 & 6: Busca na Árvore (A*) e Caminho Final
+
+Com a MST "esqueleto" gerada, o passo final foi encontrar o caminho mais curto *dentro dessa árvore* entre o início e o fim.
+
+### Implementação (Algoritmo A*)
+
+Foi implementada a função `encontrar_caminho_na_arvore` utilizando o algoritmo **A* (A-star)** da biblioteca `networkx`.
+
+* **Função:** `nx.astar_path(arvore_mst, source=no_inicial, target=no_final, heuristic=heuristic_dist)`
+* **Entrada:** Recebe os vértices inicial e final (determinados no Passo 4) e a MST (do Passo 3).
+* **Heurística:** Utiliza a **distância Euclidiana** (`math.dist`) como heurística para guiar a busca de forma eficiente.
+* **Custo:** O custo real para o A* é o atributo `weight` (distância) de cada aresta da MST.
+
+Uma verificação de robustez foi incluída para converter os tipos de dados `np.float64` (retornados pelo *verticeMaisProximo*) para as tuplas `(float, float)` exatas usadas como nós no grafo.
+
+### Resultado (Passo 6)
+
+A função `plotar_caminho` foi executada para exibir o resultado final. O gráfico gerado (salvo como `caminho_mst.png`) mostra:
+1.  Os obstáculos (cinza).
+2.  A MST completa (em azul claro, ao fundo).
+3.  O caminho final encontrado pelo A* (em vermelho vivo).
+
+O teste, buscando do "Start" (41.0, 220.0) ao "End" (962.0, 536.0), encontrou com sucesso um caminho composto por 8 vértices.
+
+![Caminho Final na MST](caminho_mst.png)
+
 
 

@@ -50,7 +50,6 @@ O núcleo da navegação é um **Grafo de Visibilidade**, onde cada nó é um v�
 **Lógica de Conexão:**
 Para cada par de vértices no mapa, um segmento de reta é criado. Este segmento é validado contra todos os obstáculos. Uma aresta é adicionada ao grafo se, e somente se, o segmento **não interceptar o interior** de nenhum polígono.
 
-```python
 # Trecho simplificado da lógica de validação
 if line.intersects(poly) and not line.touches(poly):
     # Bloqueado: a linha cruza o interior do obstáculo
@@ -59,7 +58,7 @@ else:
     # Visível: a linha passa livre ou apenas tangencia a borda
     visivel = True
 
-## Passo 3: Árvore Geradora Mínima (MST)
+# Passo 3: Árvore Geradora Mínima (MST)
 
 Após a criação do Grafo de Visibilidade (com todos os atalhos), o próximo passo foi implementar um algoritmo para extrair uma **Árvore Geradora Mínima (MST)** desse grafo.
 
@@ -72,7 +71,7 @@ A MST (Minimum Spanning Tree) é um subconjunto das arestas do grafo original qu
 Utilizamos o algoritmo de **Kruskal**, disponível na biblioteca `networkx`, para gerar a MST a partir do `grafo_vis`. O algoritmo de Kruskal ordena todas as arestas (atalhos) do menor custo para o maior e as adiciona na árvore, desde que elas não formem um ciclo.
 
 ```python
-# Função da biblioteca networkx para gerar a MST
+#Função da biblioteca networkx para gerar a MST
 mst = nx.minimum_spanning_tree(grafo_vis, algorithm='kruskal')
 
 

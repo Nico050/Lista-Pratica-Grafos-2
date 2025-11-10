@@ -80,6 +80,8 @@ mst = nx.minimum_spanning_tree(grafo_vis, algorithm='kruskal')
 # Resultado (Passo 4)
 O gráfico de teste demonstra a função. Os pontos "Start" e "End" (que já são vértices) são corretamente identificados como os mais próximos de si mesmos (o "O" e o "X" se sobrepõem).
 
+![MST](VerticeMaisProximo)
+
 
 
 

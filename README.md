@@ -73,5 +73,13 @@ Utilizamos o algoritmo de **Kruskal**, disponível na biblioteca `networkx`, par
 ```python
 #Função da biblioteca networkx para gerar a MST
 mst = nx.minimum_spanning_tree(grafo_vis, algorithm='kruskal')
+```
+
+![MST](MST.png)
+
+# Resultado (Passo 4)
+O gráfico de teste demonstra a função. Os pontos "Start" e "End" (que já são vértices) são corretamente identificados como os mais próximos de si mesmos (o "O" e o "X" se sobrepõem).
+
+
 
 
